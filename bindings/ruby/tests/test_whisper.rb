@@ -12,6 +12,12 @@ class TestWhisper < Test::Unit::TestCase
     @params  = Whisper::Params.new
   end
 
+  def test_diarize
+    assert_equal @params.diarize, false
+    @params.diarize = true
+    assert_equal @params.diarize, true
+  end
+
   def test_language
     @params.language = "en"
     assert_equal @params.language, "en"

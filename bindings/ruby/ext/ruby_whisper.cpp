@@ -73,6 +73,7 @@ static VALUE ruby_whisper_params_allocate(VALUE klass) {
   ruby_whisper_params *rwp;
   rwp = ALLOC(ruby_whisper_params);
   rwp->params = whisper_full_default_params(WHISPER_SAMPLING_GREEDY);
+  rwp->diarize = false;
   return Data_Wrap_Struct(klass, rb_whisper_params_mark, rb_whisper_params_free, rwp);
 }
 
