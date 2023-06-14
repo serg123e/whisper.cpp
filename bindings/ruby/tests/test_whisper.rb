@@ -136,9 +136,9 @@ class TestWhisper < Test::Unit::TestCase
     params.print_timestamps = false
 
     jfk = File.join(TOPDIR, '..', '..', 'samples', 'jfk.wav')
-    @whisper.transcribe(jfk, params) {|text|
-      assert_match /ask not what your country can do for you, ask what you can do for your country/, text
-    }
+    output = nil
+    @whisper.transcribe(jfk, params) { |text| output = text }
+    assert_match /ask not what your country can do for you, ask what you can do for your country/, output
   end
 
 end
