@@ -151,8 +151,8 @@ static VALUE ruby_whisper_transcribe(int argc, VALUE *argv, VALUE self) {
       return self;
     }
 
-    if (rwp->diarize && wav.channels != 2 && rwp->params.print_timestamps == false) {
-      fprintf(stderr, "WAV file '%s' must be stereo for diarization and timestamps have to be enabled\n", fname_inp.c_str());
+    if (rwp->diarize && wav.channels != 2) {
+      fprintf(stderr, "WAV file '%s' must be stereo for diarization\n", fname_inp.c_str());
       return self;
     }
 
